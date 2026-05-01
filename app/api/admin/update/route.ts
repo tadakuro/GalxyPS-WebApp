@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const collection = await getCollection('servers');
 
     await collection.updateOne(
-      { _id: 'main-server' },
+      { _id: 'main-server' } as any,
       { $set: data },
       { upsert: true }
     );
