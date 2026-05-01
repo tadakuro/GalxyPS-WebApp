@@ -4,7 +4,7 @@ import { getCollection } from '@/lib/mongodb';
 export async function GET() {
   try {
     const collection = await getCollection('servers');
-    const server = await collection.findOne({ _id: 'main-server' });
+    const server = await collection.findOne({ _id: 'main-server' } as any);
 
     if (!server) {
       return NextResponse.json({ error: 'Server not found' }, { status: 404 });
